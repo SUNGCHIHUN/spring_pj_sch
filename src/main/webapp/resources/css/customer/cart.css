@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+progress {
+	width: 1000px;
+	height: 40px;
+	border-radius: 9px;
+	margin-top:10px;
+}
+
+progress::-webkit-progress-bar {
+	width: 1000px;
+	height: 40px;
+	border-radius: 9px;
+	margin-top:10px;
+	background-color: lightgray;
+}
+
+progress::-webkit-progress-value {
+	width: 1000px;
+	height: 40px;
+	border-radius: 9px;
+	margin-top:10px;
+	background-color: #3CB371;
+}
+
+table {
+	width:1100px;
+	border-collapse: collapse;
+}
+
+table th {
+	text-align: center;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	padding: 10px 0;
+}
+
+table td {
+	text-align: center;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	padding: 20px;
+}
+
+.cart_list {
+	display: flex;
+	justify-content: center;
+}
+
+.cart_list img {
+	width: 100px;
+	height: 100px;
+}
+
+.cart_total {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.cart_total table {
+	text-align: center;
+}
+
+.cart_total table th {
+	padding: 20px;
+}
+
+.cart_total table td {
+	height: 50px;
+	font-size: 30px;
+	padding: 20px;
+}
+
+.inputAmount {
+	width: 70px;
+	height: 40px;
+	font-size: 20px;
+}
+
+.modifyBtn {
+	margin:10px;
+	width:50px;
+	height:30px;
+	background-color: white;
+}
+
+.deleteBtn {
+	margin:10px;
+	width:100px;
+	height:30px;
+	background-color: white;
+}
+
+.payBtn {
+	width: 300px;
+	height: 70px;
+	border-radius: 1em;
+	background-color: #1E90FF;
+	border: none;
+	color: white;
+	font-size: 20px;
+}
+
+input[type=checkbox] {
+	transform: scale(2);
+}

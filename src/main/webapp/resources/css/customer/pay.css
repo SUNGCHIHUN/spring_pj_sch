@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+table {
+	width:1100px;
+	border-collapse: collapse;
+	margin-bottom: 10px;
+}
+
+table th {
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	padding: 10px 0;
+	background-color: #DCDCDC;
+}
+
+table td {
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	padding: 5px;
+}
+
+.order_list {
+	display: flex;
+	justify-content: center;
+}
+
+.order_list td{
+	padding: 5px;	
+}
+
+.order_list img {
+	width: 60px;
+	height: 60px;
+}
+
+.delivery_info {
+	display: flex;
+	justify-content: center;
+}
+
+.delivery_info table th {
+	width: 200px;
+	text-align: left;
+	padding: 10px;
+}
+
+.delivery_info table td {
+	text-align: left;
+	padding:20px;
+}
+
+.order_total {
+	display: flex;
+	justify-content: center;
+}
+
+.order_total th {
+	background-color: white;
+}
+
+.order_total td {
+	background-color: white;
+	padding:30px 0;
+}
+
+.payment {
+	display: flex;
+	justify-content: center;	
+}
+
+.inputOrder {
+	width: 150px;
+	height: 30px;
+}
+
+
+.inputAddress {
+	width: 400px;
+	height: 30px;
+}
+
+.inputZipcode {
+	width: 50px;
+	height: 30px;
+	margin: 10px 0;
+}
+
+.zipcodeBtn {
+	width: 70px;
+	height: 35px;	
+	background-color: lightblue;
+}
+
+.inputTel {
+	width: 50px;
+	height: 30px;
+}
+
+.inputMsg {
+	width: 400px;
+	height: 30px;
+}
+.payment ul li {
+	margin: 15px 0;
+}
+.payment span {
+	font-size: 30px;
+	font-weight: 900;
+	color: blue;		
+}
+
+#payment {
+	font-size: 25px;
+	font-weight: 900;
+	color: black;
+}
+
+.payBtn {
+	width: 230px;
+	height: 70px;
+	border-radius: 1em;
+	background-color: #1E90FF;
+	border: none;
+	font-size:20px;
+	color:white;
+}
+
+#msg {
+	color: red;
+}

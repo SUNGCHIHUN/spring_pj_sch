@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="spring.mvc.pj_sch.dao.ShelfDAO">
+ 
+   <!-- 장바구니 리스트 조회 -->
+	<select id="getCartList" parameterType="String" resultType="spring.mvc.pj_sch.dto.ShelfDTO">
+		SELECT s.shelf_no, s.customer_id, s.product_no, p.product_img_name, p.product_name, p.product_price, s.amount
+		  FROM shelf s
+		  JOIN products p
+		    ON s.product_no = p.product_no
+		 WHERE customer_id = #{customer_id, jdbcType=VARCHAR}
+	</select>
+
+   <!-- 장바구니 개별 조회 -->
+	<select id="getCartItem" resultType="spring.mvc.pj_sch.dto.ShelfDTO">
+		SELECT * FROM shelf WHERE customer_id = #{customer_id} AND product_no = #{product_no}
+	</select>
+
+   <!-- 장바구니 상품 수량 변경 -->
+	<update id="updateCartItemAmount" parameterType="java.util.Map">
+		UPDATE shelf
+		   SET amount = #{amount}
+		 WHERE shelf_no = #{shelf_no}
+	</update>
+
+   <!-- 장바구니 등록 처리  -->
+	<insert id="addCartItem" parameterType="spring.mvc.pj_sch.dto.ShelfDTO">
+		INSERT INTO shelf(shelf_no, customer_id, product_no, amount)
+		VALUES((SELECT NVL(MAX(shelf_no) + 1, 1) FROM shelf), #{customer_id}, #{product_no}, #{amount})
+	</insert>
+
+   <!-- 장바구니 중복 등록 처리 -->
+	<update id="addDupCartItem" parameterType="java.util.Map">
+		UPDATE shelf SET amount = amount + #{amount} WHERE shelf_no = #{shelf_no}
+	</update>
+
+   <!-- 장바구니 개별 삭제 -->
+	<delete id="deleteCartItem" parameterType="java.util.List">
+		DELETE FROM shelf WHERE shelf_no IN
+		<foreach item="shelf_no" collection="array" open="(" separator="," close=")">
+			 #{shelf_no}
+		</foreach>
+	</delete>
+
+   <!-- 장바구니 비우기 -->
+	<delete id="deleteCartAll">
+		DELETE FROM shelf
+	</delete>
+
+   <!-- 결제하기 목록 -->
+ 	<select id="getPayList" parameterType="java.util.List" resultType="spring.mvc.pj_sch.dto.ShelfDTO">
+		SELECT s.shelf_no, s.customer_id, s.product_no, p.product_img_name, p.product_name, p.product_price, s.amount
+		  FROM shelf s
+		  JOIN products p
+		    ON s.product_no = p.product_no
+		 WHERE s.shelf_no IN 
+		<foreach item="shelf_no" collection="array" open="(" separator="," close=")">
+			#{shelf_no}
+		</foreach>
+	</select>
+  </mapper>

@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+#container {
+	margin: 0 auto;
+}
+
+#section {
+	margin: 0 auto;
+}
+
+#section1 {
+	text-align: center;
+}
+
+#section2 {
+	display: table;
+	margin: 0 auto;
+}
+.banner {
+	text-align: center;
+}
+
+.banner img {
+	width: 100%;
+	min-width: 1160px;
+	min-height: 1000px;
+}

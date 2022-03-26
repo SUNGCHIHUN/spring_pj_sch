@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+table {
+	width:1100px;
+	border-collapse: collapse;
+}
+
+table th {
+	padding: 10px 0;
+	background-color: #DCDCDC;
+}
+
+table td {
+	border-bottom: 1px solid gray;
+	padding: 5px;
+}
+
+.section_menu ul {
+	text-align:center;
+}
+
+.section_menu ul li{
+	display: inline;
+	padding: 0 50px;
+	font-size: 30px;
+}
+
+.order_search {
+	width: 400px;
+	margin: 0 auto;
+}
+
+.order_search ul li{
+	display: inline;;
+}
+
+.order_search td {
+	border: none;
+}
+
+.order_list {
+	display: flex;
+	justify-content: center;
+}
+
+.order_list table {
+	text-align: center;
+}
+
+.order_list td{
+	padding: 5px;	
+}
+
+.order_list img {
+	width: 60px;
+	height: 60px;
+}
+
+.delivery_info {
+	display: flex;
+	justify-content: center;
+}
+
+.delivery_info table th {
+	width: 200px;
+	text-align: left;
+	padding: 10px;
+}
+
+.delivery_info table td {
+	text-align: left;
+}
+
+.order_total {
+	display: flex;
+	justify-content: center;
+}
+
+.order_total th {
+	background-color: white;
+}
+
+.order_total td {
+	background-color: white;
+	padding:30px 0;
+}
+
+.payment {
+	display: flex;
+	justify-content: center;	
+}
+
+.inputOrder {
+	width: 150px;
+}
+
+.inputAddress {
+	width:400px;
+}
+
+.inputZipcode {
+	width:50px;
+}
+
+.inputTel {
+	width:50px;
+}
+
+.inputMsg {
+	width:400px;
+}
+.payment ul li {
+	margin: 15px 0;
+}
+.payment span {
+	font-size: 30px;
+	font-weight: 900;
+	color: blue;		
+}
+
+.payBtn {
+	width: 230px;
+	height: 70px;
+	border-radius: 1em;
+	background-color: #1E90FF;
+	border: none;
+	font-size:20px;
+	color:white;
+}
+
+.cancelBtn {
+	background-color: #FDFDFD;
+	font-size: 12px;
+	margin:5px;
+	width:40px;
+	height:25px;
+}
+
+.refundBtn {
+	background-color: #FDFDFD;
+	font-size: 12px;
+	margin:5px;
+	width:40px;
+	height:25px;
+}
+
+.selectBtn {
+	background-color: #FDFDFD;
+	font-size: 12px;
+	margin:5px;
+	width:40px;
+	height:25px;
+}

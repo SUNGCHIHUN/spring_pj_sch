@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+.product {
+	text-align: center;
+}
+
+.product ul {
+	display: inline-block;
+	margin: 0 40px;
+	margin: 40px;
+	box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.2);
+	border-radius: 1em;
+	padding: 20px;
+}
+
+.product ul li {
+	font-size: 20px;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.search {
+	display: flex;
+	justify-content: center;
+}
+
+.search input {
+	width: 500px;
+	height: 40px;
+	font-size: 20px;
+	border-radius: 5px;
+	text-align: center;
+	margin: 0 10px;
+}
+
+.search img {
+	width: 40px;
+	height: 40px;
+}
+
+.discription {
+	display: table-cell;
+	vertical-align: middle;
+	margin: 0 auto;
+	width: 1000px;
+	height: 500px;
+}
+
+.box {
+	position: relative;
+}
+
+.word {
+	font-size: 20px;
+	font-weight: bold;
+	color: gray;
+}

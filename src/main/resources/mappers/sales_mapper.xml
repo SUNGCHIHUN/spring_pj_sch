@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="spring.mvc.pj_sch.dao.SalesDAO">
+  	
+  	<!-- 결산조회 -->
+  	<select id="getSalesList" parameterType="java.util.Map" resultType="spring.mvc.pj_sch.dto.SalesDTO">
+  		SELECT *
+		  FROM (
+		        SELECT A.*, ROWNUM AS rn
+		          FROM (SELECT *
+		                  FROM sales_view
+		                ) A
+		       )
+		 WHERE rn BETWEEN #{start} AND #{end}
+  	</select>
+  	
+  	<!-- 결산 내역 개수 조회 -->
+  	<select id="getSalesTotal" resultType="Integer">
+  		SELECT COUNT(*) total FROM sales_view
+  	</select>
+  	
+  	<!-- 카테고리 총 합계 조회 -->
+  	<select id="getSalesCategory" resultType="spring.mvc.pj_sch.dto.TotalDTO">
+  		SELECT * FROM total_view
+  	</select>
+  	
+  </mapper>

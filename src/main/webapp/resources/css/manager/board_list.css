@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+#title {
+	text-align: center;
+}
+
+#line {
+	height: 3px;
+	background-color: gray;
+	margin: 40px 200px;
+}
+
+
+
+table {
+	width: 1050px;
+	border-collapse: collapse;
+}
+
+th {
+	background-color: lightgray;
+	border-bottom: 1px solid gray;
+	text-align: center;
+	padding: 10px 0;
+}
+
+td {
+	border-bottom: 1px solid lightgray;
+	height: 40px;
+	text-align: center;
+}
+
+.updateBtn {
+	background: none;
+	border-radius: 4px;
+	box-shadow: 1px 1px;
+	padding: 5px;
+	
+}
+
+.deleteBtn {
+	background: none;
+	border-radius: 4px;
+	box-shadow: 1px 1px;
+	padding: 5px;
+}
+
+.confirmBtn {
+	background: none;
+	border-radius: 4px;
+	box-shadow: 1px 1px;
+	padding: 5px;
+}
+
+.insertBtn {
+	background: none;
+	border-radius: 4px;
+	box-shadow: 1px 1px;
+	padding: 5px;
+}
+
+.cancelBtn {
+	background: none;
+	border-radius: 4px;
+	box-shadow: 1px 1px;
+	padding: 5px;
+}
+
+.btnWrite {
+	width: 80px;
+	margin: 10px;
+	background: none;
+	border-radius: 4px;
+	box-shadow: 1px 1px;
+	padding: 5px;
+	
+}
+
+.rejectBtn {
+	background: none;
+	border-radius: 4px;
+	box-shadow: 1px 1px;
+	padding: 5px;
+}

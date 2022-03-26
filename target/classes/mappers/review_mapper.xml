@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="spring.mvc.pj_sch.dao.ReviewDAO">
+  	<!-- 전체 리뷰 조회 -->
+  	<select id="getReviewList" parameterType="java.util.Map" resultType="spring.mvc.pj_sch.dto.ReviewDTO">
+ 		SELECT *
+		  FROM (
+		        SELECT A.*, ROWNUM AS rn
+		          FROM (SELECT *
+		                  FROM review
+		                 ORDER BY review_no DESC
+		                ) A
+		       )
+		 WHERE rn BETWEEN #{start} AND #{end}
+ 	</select>
+ 	
+  	<!-- 특정 상품 리뷰 DB 조회 -->
+  	<select id="getReviewList2" parameterType="java.util.Map" resultType="spring.mvc.pj_sch.dto.ReviewDTO">
+ 		SELECT *
+		  FROM (
+		        SELECT A.*, ROWNUM AS rn
+		          FROM (SELECT *
+		                  FROM review
+		                 WHERE product_no=#{product_no}
+		                 ORDER BY review_no DESC
+		                ) A
+		       )
+		 WHERE rn BETWEEN #{start} AND #{end}
+ 	</select> 
+  	
+  	<!-- 특정 상품 리뷰 등록 -->
+  	<insert id="addReview" parameterType="spring.mvc.pj_sch.dto.ReviewDTO">
+  		INSERT INTO review(review_no, customer_id, review_writer, review_contents, product_no, review_star)  
+		VALUES ((SELECT NVL(MAX(review_no) + 1, 1) FROM review), #{customer_id}, #{review_writer}, #{review_contents}, #{product_no}, #{review_star})
+  	</insert>
+  	
+  	<!-- 특정 상품 리뷰 DB 삭제 -->
+  	<delete id="deleteReview" parameterType="Integer">
+  		DELETE FROM review WHERE review_no=#{review_no}
+  	</delete>
+  	
+  	<!-- 리뷰 총 개수 -->
+  	<select id="getReviewAllTotal" resultType="Integer">
+ 		SELECT COUNT(*) total FROM review
+ 	</select> 
+  	
+  	<!-- 특정상품 리뷰 총 개수 -->
+  	<select id="getReviewTotal" parameterType="Integer" resultType="Integer">
+ 		SELECT COUNT(*) total FROM review WHERE product_no=#{product_no}
+ 	</select> 
+  	
+  </mapper>

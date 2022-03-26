@@ -1,0 +1,20 @@
+@charset "UTF-8";
+#container {
+	width: 1500px;
+	margin: 0 auto;
+}
+
+#contents {
+	width: 1300px;
+	border-top: 3px solid gray;
+	padding-top: 20px;
+}
+
+#section {
+	width: 1000px;
+	height: 700px;
+	display: inline-block;
+	padding: 20px;
+	margin-left: 20px;
+	vertical-align: top;
+}

@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+hr {
+	width: 1100px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.board {
+	margin-top: 50px;
+}
+
+.board table {
+    border-collapse: collapse;
+    width:1000px;
+	margin: 0 auto;
+}
+
+.board table th, td {
+	text-align: center;
+	padding: 5px;
+} 
+
+.board table th {
+	background: #CDCDCD;
+}
+
+.board table td {
+	background: #FDFDFD;
+	border-bottom: 1px solid lightgray;
+}
+
+.board table tr:last-child td {
+	background: none;
+	border-bottom: none;
+}
+
+.board input {
+	 font-size: 16px;
+}
+
+.board textarea {
+	min-width:500px;
+	max-width:1000px;
+	resize: none;
+	margin: 5px 0;
+}
+
+.inputTitle {
+	width: 885px;
+	height: 30px;
+}
+
+.inputTitle2 {
+	width: 505px;
+	height: 30px;
+}
+
+.writeBtn {
+	width: 100px;
+	background: none;
+	border-radius: 4px;
+	box-shadow: 1px 1px;
+	padding: 5px;
+}

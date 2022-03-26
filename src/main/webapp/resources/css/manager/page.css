@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.page {
+	display: flex;
+	justify-content: center;
+}
+
+.page li {
+	padding: 0 20px;	
+	font-size: 20px;
+}

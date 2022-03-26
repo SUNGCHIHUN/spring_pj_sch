@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+#page {
+	width: 900px;
+	height: 40px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 20px;
+}
+
+#page a {
+	margin: 20px;
+}
+
+#page span {
+	margin: 10px;
+}

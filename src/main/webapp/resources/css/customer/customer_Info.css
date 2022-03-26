@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+.section_menu ul {
+	text-align:center;
+}
+
+.section_menu ul li{
+	display: inline;
+	padding: 0 50px;
+	font-size: 30px;
+}
+
+.register {
+	width: 1000px;	
+	margin: 0 auto;
+}
+
+table {
+	margin: 50px;
+	text-align: center;
+}
+
+table tr:first-child th {
+	text-align: center;
+}
+
+table th {
+	text-align: right;
+	padding-right: 10px;
+}
+
+table td {
+	text-align: left;
+	padding-left: 10px;
+}
+
+table tr:last-child td {
+	text-align: center;
+}
+
+input {
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	font-size: 20px;
+	padding-left: 10px;
+}
+
+.inputBox {
+	width: 600px;
+	height: 50px;
+	margin: 10px;
+}
+
+.idCheckBtn {
+	width: 100px;
+	height: 40px;
+	background-color: #4682B4;
+	border: none;
+	color: white;
+}
+
+.inputZipcode {
+	width: 80px;
+	height: 50px;
+	margin: 10px;
+}
+
+.zipcodeBtn {
+	width: 100px;
+	height: 50px;	
+	background-color: lightblue;
+}
+
+.inputTel {
+	width: 100px;
+	height: 50px;
+	margin: 10px;
+}
+
+.inputEmail {
+	width: 175px;
+	height: 50px;
+	margin: 10px;
+}
+
+.selectBox {
+	width: 150px;
+	height: 50px;
+	font-size: 20px;
+}
+
+.modifyBtn {
+	margin-top: 25px;
+	border: none;
+	width: 600px;
+	height: 50px;
+	background-color: #808080;
+	color: white;
+	font-size: 30px;	
+}
+
+.dropBtn {
+	width: 40px;
+	height: 20px;
+	font-size: 5px;
+	margin-top: 100px;
+}

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="spring.mvc.pj_sch.dao.BoardDAO">
+  	
+  	<!-- 게시판 조회 -->
+  	<select id="getBoardList" parameterType="java.util.Map" resultType="spring.mvc.pj_sch.dto.BoardDTO">
+  		SELECT *
+		  FROM (
+		         SELECT A.*, ROWNUM AS rn
+		           FROM (SELECT *
+		                   FROM boards
+		                  WHERE board_category = #{board_category}
+		                  ORDER BY board_no DESC
+		                 ) A
+		        )
+		 WHERE rn BETWEEN #{start} AND #{end}
+  	</select>
+  	
+  	<!-- 게시판 상세 조회 -->
+  	<select id="getBoardDetail" parameterType="Integer" resultType="spring.mvc.pj_sch.dto.BoardDTO">
+	  	SELECT * FROM boards
+	  	 WHERE board_no = #{board_no}
+  	</select>
+
+	<!-- 조회수 증가 처리 -->
+	<update id="updateBoardHits" parameterType="Integer">
+		UPDATE boards
+		   SET board_hits = #{board_hits} + 1
+		 WHERE board_no = #{board_no}
+	</update>
+
+	<!-- 게시판 등록 -->
+	<insert id="addBoard" parameterType="spring.mvc.pj_sch.dto.BoardDTO">
+		INSERT INTO Boards(board_no, board_category, board_title, customer_id, board_writer, board_contents, board_file_name, board_state)
+		 VALUES((SELECT NVL(MAX(board_no) + 1, 1) FROM Boards), #{board_category}, #{board_title}, #{customer_id}, #{board_writer}, #{board_contents}, #{board_file_name, jdbcType=VARCHAR}, #{board_state})
+	</insert>
+	
+	<!-- 게시판 수정 -->
+	<update id="updateBoard" parameterType="spring.mvc.pj_sch.dto.BoardDTO">
+		UPDATE boards SET board_title=#{board_title}, board_contents=#{board_contents}, board_file_name=#{board_file_name} WHERE board_no=#{board_no}
+	</update>
+
+	<!-- 게시판 삭제 -->
+	<delete id="deleteBoard" parameterType="Integer">
+		DELETE FROM boards WHERE board_no=#{board_no}
+	</delete>
+
+	<!-- 게시판 총 개수 -->
+	<select id="getBoardTotal" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) total FROM Boards WHERE board_category=#{board_category}
+	</select>
+
+	<!-- 답변 조회 -->
+	<select id="getReplyList" parameterType="Integer" resultType="spring.mvc.pj_sch.dto.ReplyDTO">
+		SELECT * FROM reply WHERE board_no=#{board_no} ORDER BY reply_regist_day DESC, reply_no DESC
+	</select>
+	
+	<!-- 답변 등록 -->
+	<insert id="addReply" parameterType="spring.mvc.pj_sch.dto.ReplyDTO">
+		INSERT INTO reply(reply_no, reply_writer, reply_contents, reply_regist_day, board_no)
+		VALUES((SELECT NVL(MAX(reply_no)+ 1, 1) FROM reply), #{reply_writer}, #{reply_contents}, sysdate, #{board_no})
+	</insert>
+
+	<!-- 답변상태 수정 -->
+	<update id="updateBoardState" parameterType="java.util.Map">
+		UPDATE Boards SET board_state=#{state} WHERE board_no=#{board_no}
+	</update>
+
+	<!-- 답변 삭제 -->
+	<delete id="deleteReply" parameterType="Integer">
+		DELETE FROM reply WHERE reply_no=#{reply_no}
+	</delete>
+	
+  </mapper>
