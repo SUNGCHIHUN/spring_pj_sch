@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -235,8 +234,11 @@ public class AdminServiceImpl implements AdminService {
 		// 게시글을 조회하고, 결과를 받아온다.
 		BoardDTO dto = boardDAO.getBoardDetail(board_no);
 		
-		// 조회수 증가 처리
-		boardDAO.updateBoardHits(board_no);
+		// 조회수 가져와서 1 증가
+		int board_hits = boardDAO.getBoardHits(board_no) + 1;
+		
+		// 조회수 변경
+		boardDAO.updateBoardHits(board_no, board_hits);
 		
 		// 게시글 수정이 아닌 경우(상세조회)
 		if (state == null || !state.equals("update")) {
@@ -260,7 +262,7 @@ public class AdminServiceImpl implements AdminService {
 		System.out.println("boardAddAction() 서비스 실행");
 
 		// 파일처리 추가Start ------------------------------------------------------------------------------------
-		MultipartFile file = req.getFile("b_img");
+		MultipartFile file = req.getFile("board_img");
 		System.out.println("file : " + file);
 		
 		// 파일을 열 경로

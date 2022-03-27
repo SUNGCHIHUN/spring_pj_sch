@@ -85,7 +85,7 @@ public class ProductDAOImpl implements ProductDAO {
 		Map<String, Object> map = new HashMap<>();
 		map.put("product_amount", product_amount);
 		map.put("product_no", product_no);
-		return sqlSession.selectOne("spring.mvc.pj_sch.dao.ProductDAO.minusStock", map);
+		return sqlSession.update("spring.mvc.pj_sch.dao.ProductDAO.minusStock", map);
 	}
 	
 	@Override // 재고 증가
@@ -94,7 +94,7 @@ public class ProductDAOImpl implements ProductDAO {
 		Map<String, Object> map = new HashMap<>();
 		map.put("product_amount", product_amount);
 		map.put("product_no", product_no);
-		return sqlSession.selectOne("spring.mvc.pj_sch.dao.ProductDAO.plusStock", map);
+		return sqlSession.update("spring.mvc.pj_sch.dao.ProductDAO.plusStock", map);
 	}
 	
 	@Override // 상품 총 개수

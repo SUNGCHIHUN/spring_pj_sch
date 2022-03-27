@@ -207,6 +207,7 @@
 		</div>
 		<div id="section2">
 			<form name="cart_list" method="post" onsubmit="return pay();">
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 				<input type="hidden" name="buy_state" value="2"> 
 				<div class="cart_list">
 					<table>

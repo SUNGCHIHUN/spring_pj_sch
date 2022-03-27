@@ -16,11 +16,11 @@
 			<h1 align="center"> ${param.board_category} 등록 </h1>
 			<hr>
 			<div class="board">
-				<form action="${path}/boardAddAction.do?board_category=${param.board_category}?${_csrf.parameterName}=${_csrf.token}" method="post" enctype="multipart/form-data">
+				<form action="${path}/boardAddAction.do?board_category=${param.board_category}&${_csrf.parameterName}=${_csrf.token}" method="post" enctype="multipart/form-data">
 					<table>
 						<tr>
 							<th> 제목 </th>
-							<td colspan="2"><input type="text" class="inputTitle" name="title"></td>
+							<td colspan="2"><input type="text" class="inputTitle" name="title" required></td>
 						</tr>
 						
 						<tr>
@@ -31,7 +31,7 @@
 						<tr>
 							<th>내용</th>
 							<td colspan="2">
-								<textarea name="contents" cols="120" rows="20"></textarea>
+								<textarea name="contents" cols="120" rows="20" required></textarea>
 							</td>
 						</tr>
 						<tr>

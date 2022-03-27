@@ -15,7 +15,7 @@
 			<h1 align="center"> ${ko_category} 수정 </h1>
 			<hr>
 			<div class="board">
-				<form action="${path}/boardUpdateAction.do?board_no=${board.board_no}?${_csrf.parameterName}=${_csrf.token}" method="post" enctype="multipart/form-data">
+				<form action="${path}/boardUpdateAction.do?board_no=${board.board_no}&${_csrf.parameterName}=${_csrf.token}" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="hidden_img_name" value="${board.board_file_name}">
 					<table>
 						<tr>

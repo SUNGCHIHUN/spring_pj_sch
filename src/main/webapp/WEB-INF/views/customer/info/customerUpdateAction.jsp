@@ -15,7 +15,7 @@
 		<c:remove var="authResult" scope="session" />
 		<script>
 			alert("회원정보가 수정되었습니다.");
-			window.location="${path}/customerAuth.do";
+			window.location="${path}/customerDetail.do";
 		</script>
 	</c:if>
 

@@ -29,7 +29,8 @@
 			<h1 align="center"> ${board_category} </h1>
 			<hr>
 			<div class="board">
-				<form action="${path}/boardUpdate.do?board_no=${board.board_no}&state=update" method="post">
+				<form action="${path}/boardUpdate.do?board_no=${board.board_no}&state=update&" method="post">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 					<table>
 						<tr>
 							<th>제목</th>

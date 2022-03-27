@@ -8,10 +8,10 @@
 </head>
 <body>
 <div class="wrap">
-   <%@ include file="/WEB-INF/views/common/header.jsp" %>   
+   <%@ include file="/WEB-INF/views/manager/common/header.jsp" %>   
    
    <div id="container">
-      <div id="contents" style="text-align: center">
+      <div id="contents" style="text-align: center;">
          <h1>관리자 페이지</h1>
          <br>
          
@@ -32,6 +32,6 @@
 <br>
 <br>
 
-   <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+   <%@ include file="/WEB-INF/views/manager/common/footer.jsp" %>
 </body>
 </html>

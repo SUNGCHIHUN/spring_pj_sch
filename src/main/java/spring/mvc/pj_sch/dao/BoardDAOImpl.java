@@ -34,16 +34,31 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.getMapper(BoardDAO.class).getBoardDetail(board_no);
 	}
 
+	@Override // 조회수 가져오기
+	public int getBoardHits(int board_no) {
+		System.out.println("getBoardHits() - dao");
+		return sqlSession.getMapper(BoardDAO.class).getBoardHits(board_no);
+	}
+	
 	@Override // 조회수 증가 처리
-	public int updateBoardHits(int board_no) {
+	public int updateBoardHits(int board_no, int board_hits) {
 		System.out.println("updateBoardHits() - dao");
-		return sqlSession.getMapper(BoardDAO.class).updateBoardHits(board_no);
+		Map<String, Object> map = new HashMap<>();
+		map.put("board_no", board_no);
+		map.put("board_hits", board_hits);
+		return sqlSession.update("spring.mvc.pj_sch.dao.BoardDAO.updateBoardHits", map);
 	}
 	
 	@Override // 게시판 등록
 	public int addBoard(BoardDTO dto) {
 		System.out.println("addBoard() - dao");
 		return sqlSession.getMapper(BoardDAO.class).addBoard(dto);
+	}
+	
+	@Override // 게시판 간편 등록
+	public int simpleAddBoard(BoardDTO dto) {
+		System.out.println("simpleAddBoard - dao");
+		return sqlSession.getMapper(BoardDAO.class).simpleAddBoard(dto);
 	}
 
 	@Override // 게시판 수정

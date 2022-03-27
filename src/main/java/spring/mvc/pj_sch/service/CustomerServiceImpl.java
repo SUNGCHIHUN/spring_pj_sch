@@ -778,8 +778,11 @@ public class CustomerServiceImpl implements CustomerService {
 		// 답글을 가져온다.
 		List<ReplyDTO> rlist = boardDAO.getReplyList(board_no);
 		
-		// 조회수 증가
-		boardDAO.updateBoardHits(board_no);
+		// 조회수 가져와서 1 증가
+		int board_hits = boardDAO.getBoardHits(board_no) + 1;
+		
+		// 조회수 변경
+		boardDAO.updateBoardHits(board_no, board_hits);
 		
 		// 3. 결과를 request 객체에 저장하여 돌려준다.
 		model.addAttribute("board", dto);
@@ -958,7 +961,8 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		// 1. 카테고리와 게시글 내용들을 받아와 dto에 저장합니다.
 		String category = req.getParameter("board_category");
-
+		System.out.println("category : " + category);
+		
 		BoardDTO dto = new BoardDTO();
 		dto.setBoard_category(category);
 		dto.setBoard_title(req.getParameter("title"));
@@ -968,7 +972,7 @@ public class CustomerServiceImpl implements CustomerService {
 		dto.setBoard_state("답변대기");
 		
 		// 2. DAO를 생성하여 받아온 내용을 DB에 등록합니다.
-		int insertResult = boardDAO.addBoard(dto);
+		int insertResult = boardDAO.simpleAddBoard(dto);
 		System.out.println("insertResult : " + insertResult);
 		
 		// 3. 결과를 받아 request 객체에 저장합니다.

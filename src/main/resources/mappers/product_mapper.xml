@@ -101,7 +101,9 @@
   
   <!-- 재고 감소 -->
   <update id="minusStock" parameterType="java.util.Map">
-  	UPDATE products SET product_amount=#{product_amount} WHERE product_no=#{product_no}
+  	UPDATE products 
+  	   SET product_amount=#{product_amount} 
+  	 WHERE product_no=#{product_no}
   </update>
 
   <!-- 재고 증가 -->

@@ -16,14 +16,20 @@ public interface BoardDAO {
 	// 게시판 상세조회
 	BoardDTO getBoardDetail(int board_no);
 
+	// 조회수 가져오기
+	int getBoardHits(int board_no);
+	
 	// 조회수 증가
-	int updateBoardHits(int board_no);
+	int updateBoardHits(int board_no, int board_hits);
 	
 	// 게시글 답변 조회
 	List<ReplyDTO> getReplyList(int board_no);
 	
 	// 게시글 등록
 	int addBoard(BoardDTO dto);
+	
+	// 게시글 간편 등록
+	int simpleAddBoard(BoardDTO dto);
 
 	// 게시판 수정
 	int updateBoard(BoardDTO dto);

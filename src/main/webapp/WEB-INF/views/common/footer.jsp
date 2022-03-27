@@ -84,9 +84,12 @@
 			<br> _
 		</div>
 		
-		<div class="footer_ask">
-			<a href="javascript:askSimpleAdd();"><img src="${path}/resources/images/footerImage/ask.png"></a>
-		</div>
+		<c:if test="${sessionId != null}">
+			<div class="footer_ask">
+				<a href="javascript:askSimpleAdd();"><img src="${path}/resources/images/footerImage/ask.png"></a>
+			</div>	
+		</c:if>
+		
 	</div>
 </body>
 </html>

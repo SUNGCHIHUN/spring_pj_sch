@@ -24,7 +24,7 @@
 			// 비동기로 고객 주소 가져오기
 			$.ajax({
 				type: "POST",
-				url: "${path}/getCustomerAddress.do",
+				url: "${path}/getCustomerAddress.do?${_csrf.parameterName}=${_csrf.token}",
 				success: function(result) {
 					$(".delivery_info").html(result);
 				},
@@ -139,12 +139,26 @@
 			var deliveryPrice = 0;
 			var finalTotalPrice = 0;
 			
-			$(".cart_info_td").each(function(index, element) {
-				// 총 가격 계산
-				totalPrice += (parseInt($(element).find(".product_price").val() *
-							   parseInt($(element).find(".amount").val())));
-				console.log(totalPrice);
-			});
+			if (buy_state == 1) {
+				$(".buy_info_td").each(function(index, element) {	
+					// 총 가격 계산
+					totalPrice += (parseInt($(element).find(".product_price").val() *
+								   parseInt($(element).find(".amount").val())));
+					console.log(totalPrice);
+				})
+				
+			} else if (buy_state == 2) {
+				$(".cart_info_td").each(function(index, element) {
+					// 총 가격 계산
+					totalPrice += (parseInt($(element).find(".product_price").val() *
+								   parseInt($(element).find(".amount").val())));
+					console.log(totalPrice);
+				});
+			}
+			
+			
+			
+			
 				
 			// 배송비 결정
 			if(totalPrice >= 100000) {
@@ -180,6 +194,7 @@
 			<h1> 주문서 작성</h1>
 		</div>	
 		<form name="pay_list" method="post" onsubmit="return infoCheck();">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			<input type="hidden" id="buy_state" name="buy_state" value="${param.buy_state}">
 			<input type="hidden" name="slist" value="${slist}">
 			<div id="section2">
@@ -251,7 +266,7 @@
 						<tr>
 							<th>받으시는 분 &nbsp; &nbsp; &nbsp; 
 								<%-- 로그인을 한 고객만 활성화 --%>
-								<c:if test="${loginResult == 1}">
+								<c:if test="${sessionId != null}">
 									<input type="button" class="getCustomerAddressBtn" value="본인" required>
 								</c:if>
 							</th>

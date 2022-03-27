@@ -29,7 +29,7 @@
 			<%@ include file="/WEB-INF/views/manager/common/left_menu.jsp" %>
 			<div id="section">
 				<div class="board">
-					<form action="${path}/boardUpdateAction.ad?board_no=${board.board_no}&pageNum=${pageNum}?${_csrf.parameterName}=${_csrf.token}" method="post" enctype="multipart/form-data">
+					<form action="${path}/boardUpdateAction.ad?board_no=${board.board_no}&pageNum=${pageNum}&${_csrf.parameterName}=${_csrf.token}" method="post" enctype="multipart/form-data">
 						<table>
 							<tr>
 								<th> 제목 </th>

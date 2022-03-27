@@ -16,7 +16,6 @@
 <script src="${path}/resources/js/zipcode.js" defer></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
-
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp" %>

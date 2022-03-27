@@ -21,7 +21,7 @@
 				alert("로그인이 필요합니다.");
 				window.location="${path}/login.do";
 			} else {
-				document.product_detail.action= "${path}/cartAddAction.do";
+				document.product_detail.action= "${path}/cartAddAction.do?";
 				document.product_detail.submit();
 			}
 		});
@@ -60,6 +60,7 @@
 		
 		<div id="section2">
 			<form name="product_detail" method="post">
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 				<div class="product_detail">
 					<input type="hidden" name="buy_state" value="1">
 					<input type="hidden" name="product_no" value="${p_dto.product_no}">
@@ -137,6 +138,7 @@
 					<tr>
 						<td style="border-right: 1px dotted gray; width:80%;">
 							<form action="${path}/reviewAddAction.do" method="post" onsubmit="return contentsCheck()">
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 								<input type="hidden" name="product_no" value="${p_dto.product_no}">
 								<ul>
 									<li>

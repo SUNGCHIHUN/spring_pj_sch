@@ -80,7 +80,7 @@
 						<td colspan="9" align="center" style="border-bottom: none;">
 							<%-- 이전버튼 활성화 여부 --%>
 							<c:if test="${paging.startPage > 10}">
-								<a href="${path}/refund_list.ad?pageNum=${paging.prev}">[이전]</a>
+								<a href="${path}/refundList.ad?pageNum=${paging.prev}">[이전]</a>
 							</c:if>
 							
 							<%-- 페이지 번호 처리 --%>
@@ -91,14 +91,14 @@
 								</c:if>
 								
 								<c:if test="${num != paging.currentPage}">
-									<a href="${path}/refund_list.ad?pageNum=${num}">${num}</a>
+									<a href="${path}/refundList.ad?pageNum=${num}">${num}</a>
 								</c:if>
 								
 							</c:forEach>
 							
 							<%-- 다음버튼 활성화 여부 --%>
 							<c:if test="${paging.endPage < paging.pageCount}">
-								<a href="${path}/refund_list.ad?pageNum=${paging.next}">[다음]</a>
+								<a href="${path}/refundList.ad?pageNum=${paging.next}">[다음]</a>
 							</c:if>
 						</td>
 					</tr>

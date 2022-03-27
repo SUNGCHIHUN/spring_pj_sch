@@ -63,54 +63,49 @@
 						<th>수량</th>
 						<th>상품구매금액</th>
 						<th>합계</th>
-						<th>주문상태</th>
+						<th>주문상태 ${olist.size()}</th>
 					</tr>
+					<%-- 주문 내역이 없는 경우 --%>
+					<c:if test="${olist.size() == 0}">
+						<tr>
+							<td colspan="8" style="height: 200px;">
+								구매내역이 존재하지 않습니다.
+							</td>
+						</tr>
+					</c:if>
 					<c:forEach var="order" items="${olist}">
 						<%-- 주문 내역이 없는 경우 --%>
-						<c:if test="${olist.size() == 0}">
-							<tr>
-								<td colspan="8" style="height: 200px;">
-									구매내역이 존재하지 않습니다.
-								</td>
-							</tr>
-						</c:if>
-
-						<%-- 주문 내역이 없는 경우 --%>
-						<c:if test="${olist.size() != 0}">
-							<tr>
-								<td>
-									${order.order_day}
-								</td>
-								<td><a href="${path}/productDetail.do?product_no=${order.product_no}"><img src="${order.product_img_name}" alt="상품이미지"></a></td>
-								<td>${order.product_name}</td>	
-								<td>${order.order_amount}</td>
-								<td>
-									<fmt:formatNumber value="${order.product_price}" pattern="#,### 원" />
-								</td>
-								<td>
-									<fmt:formatNumber value="${order.product_price * order.order_amount}" pattern="#,### 원" />
-								</td>
-								<td>
-									<c:choose>
-										<c:when test="${order.order_state == '결제대기'}">
-											<input type="button" value="취소" class="cancelBtn" onclick="orderCancel('${order.order_no}')"><br>
-											구매요청
-										</c:when>
-										<c:when test="${order.order_state == '결제승인'}">
-											<input type="button" value="환불" class="refundBtn" onclick="refund('${order.order_no}')"><br>
-											구매완료
-										</c:when>
-										<c:when test="${order.order_state == '환불요청'}">
-											<input type="button" value="취소" class="cancelBtn" onclick="refundCancel('${order.order_no}')"><br>
-											환불요청
-										</c:when>
-										<c:otherwise> ${order.order_state}</c:otherwise>
-									</c:choose>
-									
-									
-								</td>
-							</tr>
-						</c:if>
+						<tr>
+							<td>
+								${order.order_day}
+							</td>
+							<td><a href="${path}/productDetail.do?product_no=${order.product_no}"><img src="${order.product_img_name}" alt="상품이미지"></a></td>
+							<td>${order.product_name}</td>	
+							<td>${order.order_amount}</td>
+							<td>
+								<fmt:formatNumber value="${order.product_price}" pattern="#,### 원" />
+							</td>
+							<td>
+								<fmt:formatNumber value="${order.product_price * order.order_amount}" pattern="#,### 원" />
+							</td>
+							<td>
+								<c:choose>
+									<c:when test="${order.order_state == '결제대기'}">
+										<input type="button" value="취소" class="cancelBtn" onclick="orderCancel('${order.order_no}')"><br>
+										구매요청
+									</c:when>
+									<c:when test="${order.order_state == '결제승인'}">
+										<input type="button" value="환불" class="refundBtn" onclick="refund('${order.order_no}')"><br>
+										구매완료
+									</c:when>
+									<c:when test="${order.order_state == '환불요청'}">
+										<input type="button" value="취소" class="cancelBtn" onclick="refundCancel('${order.order_no}')"><br>
+										환불요청
+									</c:when>
+									<c:otherwise> ${order.order_state}</c:otherwise>
+								</c:choose>
+							</td>
+						</tr>
 					</c:forEach>
 				</table>
 			</div>
@@ -118,7 +113,7 @@
 			<div id="page">
 				<%-- 이전버튼 활성화 여부 --%>
 				<c:if test="${paging.startPage > 10}">
-					<a href="${path}/orderList.do?pageNum=${paging.prev}">[이전]</a>
+					<a href="${path}/customerOrderList.do?pageNum=${paging.prev}">[이전]</a>
 				</c:if>
 				
 				<%-- 페이지 번호 처리 --%>
@@ -129,13 +124,13 @@
 					</c:if>
 					
 					<c:if test="${num != paging.currentPage}">
-						<a href="${path}/orderList.do?pageNum=${num}">${num}</a>
+						<a href="${path}/customerOrderList.do?pageNum=${num}">${num}</a>
 					</c:if>
 				</c:forEach>
 				
 				<%-- 다음버튼 활성화 여부 --%>
 				<c:if test="${paging.endPage < paging.pageCount}">
-					<a href="${path}/orderList.do?pageNum=${paging.next}">[다음]</a>
+					<a href="${path}/customerOrderList.do?pageNum=${paging.next}">[다음]</a>
 				</c:if>
 			</div>
 		</div>

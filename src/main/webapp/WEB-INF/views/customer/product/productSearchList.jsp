@@ -40,6 +40,7 @@
 		<div id="section2">
 			<div class="search">
 				<form name="search_form" method="post">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 					<input type="search" id="keyword" name="keyword" onkeydown="enterKey()" placeholder="음료 이름을 입력해보세요!">
 					<a href="#"><img src="${path}/resources/images/navImage/search-48.png" alt="검색" onclick="searchProduct()"></a>
 				</form>

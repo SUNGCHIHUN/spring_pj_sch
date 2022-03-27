@@ -26,10 +26,17 @@
 	  	 WHERE board_no = #{board_no}
   	</select>
 
+	<!-- 조회수 가져오기 -->
+	<select id="getBoardHits" parameterType="Integer" resultType="Integer">
+		SELECT board_hits
+		  FROM boards
+		 WHERE board_no = #{board_no}
+	</select>
+
 	<!-- 조회수 증가 처리 -->
-	<update id="updateBoardHits" parameterType="Integer">
+	<update id="updateBoardHits" parameterType="java.util.Map">
 		UPDATE boards
-		   SET board_hits = #{board_hits} + 1
+		   SET board_hits = #{board_hits}
 		 WHERE board_no = #{board_no}
 	</update>
 
@@ -37,6 +44,12 @@
 	<insert id="addBoard" parameterType="spring.mvc.pj_sch.dto.BoardDTO">
 		INSERT INTO Boards(board_no, board_category, board_title, customer_id, board_writer, board_contents, board_file_name, board_state)
 		 VALUES((SELECT NVL(MAX(board_no) + 1, 1) FROM Boards), #{board_category}, #{board_title}, #{customer_id}, #{board_writer}, #{board_contents}, #{board_file_name, jdbcType=VARCHAR}, #{board_state})
+	</insert>
+
+	<!-- 게시판 간편 등록 -->
+	<insert id="simpleAddBoard" parameterType="spring.mvc.pj_sch.dto.BoardDTO">
+		INSERT INTO Boards(board_no, board_category, board_title, customer_id, board_writer, board_contents, board_state)
+		 VALUES((SELECT NVL(MAX(board_no) + 1, 1) FROM Boards), ${board_category}, #{board_title}, #{customer_id}, #{board_writer}, #{board_contents}, #{board_state})
 	</insert>
 	
 	<!-- 게시판 수정 -->

@@ -156,7 +156,7 @@ public class AdminController extends HttpServlet {
 			throws ServletException, IOException{
 		logger.info("url => replyAddAction 진입");
 		service.replyAddAction(req, model);
-		return "manager/board/replyAddAction";
+		return "manager/board/replyList";
 	}
 
 	@RequestMapping("replyDeleteAction.ad") // 게시글 답글 삭제 처리
@@ -164,7 +164,7 @@ public class AdminController extends HttpServlet {
 			throws ServletException, IOException{
 		logger.info("url => replyDeleteAction 진입");
 		service.replyDeleteAction(req, model);
-		return "manager/board/replyDeleteAction";
+		return "manager/board/replyList";
 	}
 
 	// --------------------------------- [리뷰 관리] -----------------------------------------	

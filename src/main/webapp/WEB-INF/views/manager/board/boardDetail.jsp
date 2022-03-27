@@ -96,7 +96,7 @@
 			<%@ include file="/WEB-INF/views/manager/common/left_menu.jsp" %>
 			<div id="section">
 				<div class="board">
-					<form action="${path}/boardUpdate.ad?board_no=${board.board_no}&state=update" method="post" enctype="multipart/form-data">
+					<form action="${path}/boardUpdate.ad?board_no=${board.board_no}&state=update&${_csrf.parameterName}=${_csrf.token}" method="post" enctype="multipart/form-data">
 						<table>
 							<tr>
 								<th>제목</th>
