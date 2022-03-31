@@ -27,6 +27,12 @@ public class CustomerController extends HttpServlet {
 
 	// --------------------------------- [메인] -----------------------------------------
 	
+	@RequestMapping("/") // 메인 페이지 이동
+	public String main() {
+		logger.info("url => / 진입");
+		return "index";
+	}
+	
 	@RequestMapping("main.do") // 메인 페이지 이동
 	public String main(HttpServletRequest req, Model model) 
 			throws ServletException, IOException{

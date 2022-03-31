@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="${path}/resources/css/manager/main.css">
 <link rel="stylesheet" href="${path}/resources/css/manager/board_list.css">
 <link rel="stylesheet" href="${path}/resources/css/manager/page.css">
+
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 
@@ -35,7 +36,6 @@
 	
 	if (${tlist.get(4).total_sales != ''})
 		salesTotal = parseInt("${tlist.get(4).total_sales}");
-
 	
 	$(function() {
 		loadChart();
@@ -67,7 +67,6 @@
 		var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
 		chart.draw(data, options);
 	}
-	
 </script>
 </head>
 <body>

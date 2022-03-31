@@ -39,6 +39,13 @@
       <security:access-denied-handler ref="userDeniedHandler" />
    </security:http>
    
+   <!-- 로그인 인증처리 클래스 -->
+   <!-- login-processing-url="/loginCheck.do"에 의해 자동호출  -->
+   <bean class="spring.mvc.pj_sch.service.UserAuthenticationService">
+   	   <constructor-arg name="sqlSession" ref="sqlSession" />
+   	   <constructor-arg name="passwordEncoder" ref="bcryptPasswordEncoder" />
+   </bean>
+   
    <!-- 로그인 성공시 작동 -->
    <bean id="userLoginSuccessHandler" class="spring.mvc.pj_sch.service.UserLoginSuccessHandler">
    	   <constructor-arg name="sqlSession" ref="sqlSession" />
@@ -52,13 +59,6 @@
    
    <!-- 접근 권한이 없는 경우 작동 -->
    <bean id="userDeniedHandler" class="spring.mvc.pj_sch.service.UserDeniedHandler" />
-   
-   <!-- 로그인 인증처리 클래스 -->
-   <!-- login-processing-url="/loginCheck.do"에 의해 자동호출  -->
-   <bean id="userService" class="spring.mvc.pj_sch.service.UserAuthenticationService">
-   	   <constructor-arg name="sqlSession" ref="sqlSession" />
-   	   <constructor-arg name="passwordEncoder" ref="bcryptPasswordEncoder" />
-   </bean>
    
    <!-- 비밀번호 암호화 클래스 -->
    <bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />

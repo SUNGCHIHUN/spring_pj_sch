@@ -33,8 +33,9 @@ public class UserLoginSuccessHandler implements AuthenticationSuccessHandler {
 		UserVO vo = (UserVO)authentication.getPrincipal();
 		System.out.println("인증된 정보 : " + vo);
 
-		// 아이디를 가져와서 메세지 생성
-		String msg = authentication.getName() + "님 환영합니다.";
+		// 이름을 가져와서 메세지 생성
+		String name = sqlSession.getMapper(CustomerDAO.class).getCustomerName(authentication.getName());
+		String msg = name + "님 환영합니다.";
 	
 		// 권한 가져오기
 		String authority = sqlSession.getMapper(CustomerDAO.class).getAuthority(authentication.getName());
@@ -42,7 +43,7 @@ public class UserLoginSuccessHandler implements AuthenticationSuccessHandler {
 		// 값 넘겨주기
 		request.setAttribute("msg",  msg);
 		request.getSession().setAttribute("sessionId",  authentication.getName());
-		request.getSession().setAttribute("sessionName", sqlSession.getMapper(CustomerDAO.class).getCustomerName(authentication.getName()));
+		request.getSession().setAttribute("sessionName", name);
 		request.getSession().setAttribute("authority", authority);
 		
 		// 고객 권한이면
@@ -54,7 +55,6 @@ public class UserLoginSuccessHandler implements AuthenticationSuccessHandler {
 		} else {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/stockList.st");
 			dispatcher.forward(request, response);
-			
 		}
 	}
 }

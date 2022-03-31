@@ -82,7 +82,7 @@
    <!-- 5. 에러처리 페이지 시작 -->
    <error-page>
       <error-code>500</error-code>
-      <location>/customer/login</location>
+      <location>/customer/login.jsp</location>
    </error-page>
    <!-- 에러처리 페이지 종료 -->
    
@@ -90,4 +90,5 @@
    <session-config>
       <session-timeout>480</session-timeout>
    </session-config>
+
 </web-app>

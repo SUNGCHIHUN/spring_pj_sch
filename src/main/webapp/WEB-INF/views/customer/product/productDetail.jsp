@@ -17,7 +17,7 @@
 
 		// 장바구니 담기 버튼
 		$("#cartAddBtn").click(function() {
-			if (${sessionId == ""}) {
+			if (${sessionId == null}) {
 				alert("로그인이 필요합니다.");
 				window.location="${path}/login.do";
 			} else {
@@ -28,7 +28,7 @@
 		
 		// 구매하기 버튼
 		$("#buyBtn").click(function() {
-			if (${sessionId == ""}) {
+			if (${sessionId == null}) {
 				alert("로그인이 필요합니다.");
 				window.location="${path}/login.do";
 			} else {
