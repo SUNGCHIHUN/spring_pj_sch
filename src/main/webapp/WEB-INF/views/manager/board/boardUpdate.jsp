@@ -35,19 +35,16 @@
 								<th> 제목 </th>
 								<td colspan="2"><input type="text" name="title" size="50" value="${board.board_title}"></td>
 							</tr>
-							
 							<tr>
 								<th>작성자</th>
 								<td>${board.board_writer}</td>
 							</tr>
-							
 							<tr>
 								<th>내용</th>
 								<td colspan="2">
 									<textarea name="contents" cols="120" rows="20">${board.board_contents}</textarea>
 								</td>
 							</tr>
-							
 							<tr>
 								<th>파일</th>
 								<td colspan="2">
@@ -55,7 +52,6 @@
 									<input type="file" name="board_img" value="파일명">
 								</td>
 							</tr>
-								
 							<tr>
 								<td colspan="3" style="text-align: right; border-bottom: none;">
 									<input type="submit" class="updateBtn" value="수정">

@@ -57,11 +57,11 @@
 								<td><a href="${path}/boardDetail.ad?board_no=${board.board_no}&pageNum=${paging.currentPage}">${board.board_title}</a></td>
 								<td>
 									<%-- 파일이 있는 경우 --%>
-									<c:if test="${board.board_file_name != null && board.board_file_name != ''}">
+									<c:if test="${board.board_file_name != null && board.board_file_name != 'noFile'}">
 										<img alt="#" width="20px" height="20px">
 									</c:if>
 									<%-- 파일이 없는 경우 --%>
-									<c:if test="${board.board_file_name == null || board.board_file_name == ''}">
+									<c:if test="${board.board_file_name == null || board.board_file_name == 'noFile'}">
 										--
 									</c:if>
 								</td>

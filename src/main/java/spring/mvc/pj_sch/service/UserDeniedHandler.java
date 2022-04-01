@@ -27,5 +27,4 @@ public class UserDeniedHandler implements AccessDeniedHandler {
 		dispatcher.forward(request, response);
 		
 	}
-
 }

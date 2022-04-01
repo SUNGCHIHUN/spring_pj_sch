@@ -40,20 +40,17 @@
 	$(function() {
 		loadChart();
 	});
-
-	// 차트 불러오기
-	function loadChart() {
-		google.charts.load('current', {'packages':['corechart']});
-		google.charts.setOnLoadCallback(drawVisualization);
-	}
 		
 	// 차트 정보 설정
 	function drawVisualization() {
+		
+		// 차트 데이터
 		var data = google.visualization.arrayToDataTable([
 			['매출액', '드링크', '탄산', '생수', '커피', '전체'],
 			['-', drinkTotal, carbonTotal, waterTotal, coffeeTotal, salesTotal]
 		]);
 		
+		// 차트 디자인
 		var options = {
 			title : '카테고리별 매출액',
 			vAxis: {title: '매출액'},
@@ -67,6 +64,13 @@
 		var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
 		chart.draw(data, options);
 	}
+	
+	// 차트 불러오기
+	function loadChart() {
+		google.charts.load('current', {'packages':['corechart']});
+		google.charts.setOnLoadCallback(drawVisualization);
+	}
+	
 </script>
 </head>
 <body>

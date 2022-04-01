@@ -294,11 +294,11 @@ public class AdminServiceImpl implements AdminService {
 			} catch(IOException e) {
 				e.printStackTrace();
 			}
+		} else {
+			System.out.println("파일 없음 : " + file.getOriginalFilename());
 		}
 
-		System.out.println("파일 없음 : " + file.getOriginalFilename());
 		// 파일처리 추가End ---------------------------------------------------------------------------
-
 		
 		String category = req.getParameter("board_category"); // 게시글 카테고리
 		
@@ -351,7 +351,12 @@ public class AdminServiceImpl implements AdminService {
 		
 		// 1. 게시글 번호와 수정 내용을 받아옵니다.
 		int board_no = Integer.parseInt(req.getParameter("board_no"));
-		String upload_img_name = file.getOriginalFilename(); // 수정된 파일명
+
+		String upload_img_name = ""; // 수정된 파일명을 저장할 변수
+		if (file != null) {
+			upload_img_name = file.getOriginalFilename(); // 수정된 파일명
+		}
+		
 		String hidden_img_name = req.getParameter("hidden_img_name"); // 기존 파일명
 		System.out.println("upload_img_name : " + upload_img_name);
 		System.out.println("hidden_img_name : " + hidden_img_name);

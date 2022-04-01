@@ -45,7 +45,7 @@
 			 #{shelf_no}
 		</foreach>
 	</delete>
-
+	
    <!-- 장바구니 비우기 -->
 	<delete id="deleteCartAll">
 		DELETE FROM shelf

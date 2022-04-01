@@ -17,7 +17,7 @@
 			window.location='${path}/orderConfirmAction.ad?order_no=' + order_no + '&product_no=' + product_no + '&order_amount=' + order_amount + '&pageNum=${paging.pageNum}';
 		}	}
 
-	function cancelOrder(no) {
+	function cancelOrder(order_no) {
 		if (confirm('취소하시겠습니까?')) {
 			window.location='${path}/orderCancelAction.ad?order_no=' + order_no + '&pageNum=${paging.pageNum}';
 		}
