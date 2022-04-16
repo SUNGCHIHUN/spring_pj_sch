@@ -21,8 +21,6 @@
 	var salesTotal = 0;
 
 	if (${tlist.get(0).total_sales != ''})
-		console.log('tlist.get(0).total_sales' + ${tlist.get(0).total_sales})
-		
 		carbonTotal = parseInt("${tlist.get(0).total_sales}");
 	
 	if (${tlist.get(1).total_sales != ''})

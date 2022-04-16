@@ -237,7 +237,7 @@ public class CustomerServiceImpl implements CustomerService {
 //	public void customerAuthAction(HttpServletRequest req, Model model) {
 //		System.out.println("customerAuthAction() 서비스 실행");
 //		
-//		// 로그인 성공 여부
+//		// 로그인 성공 여부d
 //		int loginResult = 0;
 //		
 //		// 회원의 인증 상태를 세션에서 받아옴
